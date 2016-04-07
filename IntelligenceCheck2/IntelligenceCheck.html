@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>The Ultimate D&D app</title>
+<style>
+body
+h1		{
+	color:white;
+	font-family:Calibri;
+	font-size:200%;
+}
+p		{
+	color:black;
+	font-family:Goudy Old Style;
+	font-size:100%;
+}
+#header	{
+	background-color:black;
+	font-family:Goudy Old Style;
+	font-size:200%;
+	color:white;
+	text-align:center;
+	padding:5px;
+}
+#header2	{
+	background-color:red;
+	font-family:Calibri;
+	font-size:200%;
+	color:white;
+	text-align:center;
+	padding:5px;
+}
+#nav {
+	line-height:30px;
+	font-family:Goudy Old Style;
+	background-color:#eeeeee;
+	height:300px;
+	width:100px;
+	float:left;
+	padding:5px;
+}
+#section {
+	width:300px;
+	float:left;
+	font-family:Goudy Old Style;
+	padding:10px;
+}
+#aside	{
+	width:300px;
+	float:left;
+	font-family:Goudy Old Style;
+	padding:10px;
+}
+#footer{
+	background-color:black;
+	color:white;
+	clear:both;
+	text-align:center;
+	padding:5px;}
+</style>
+</head>
+<body>
+
+<div id="header">
+<h1>IntelligenceCheck</h1>
+</div>
+
+<div id="nav">
+Introduction<br>
+The App<br>
+The Team
+</div>
+
+<div id="section"<
+<h1>Introduction</h1>
+<p>Dungeons and Dragons, a role-playing game developed by Wizards of the Coast, is a powerful, fantastic experience. Or at least it should be. 
+Adventurers may be able to rescue innocent victims of a goblin raid, emerge victorious from terrible wars, and conquer the most formidable enemies, but 
+cannot overcome the problem of a forgotten play materials.</p>
+<p>IntelligenceCheck is our solution to this problem - a mobile app which essentially lifts the traditionally paper-and-pencil setting of D&D to an intuitive digital 
+interface.</p>
+</div>
+
+<div id="section"<
+<h1>The App</h1>
+<p>IntelligenceCheck is a mobile application for iOS that serves as a centralized digital interface for D&D play. The app is comprised of three main interfaces:</p>
+<p>1) The Character Sheet</p>
+<p>2) The Dungeon Master Guide/Player's Handbook</p>
+<p>3) the Interactive Map/Combat Interface.</p>
+<p>The app will also have wi-fi capabilities to allow players to share and view information as members of customizable parties for convenience in play.
+</div>
+
+<div id="aside"<
+<h1>The Team</h1>
+<p>Emma Whitaker</p>
+<p>Currently a junior at Whitworth University, Whitaker is a Mathematics major with minors in Computer Science and Spanish. She is a newer participant in a 
+D&D campaign and is excited to streamline the game.</p>
+<p>Daniel Lee</p>
+<p>Currently a junior at Whitworth University, Lee is a Journalism/Mass Communication major with a minor in Film and Visual Narrative. He is also new to D&D, 
+but is very invested in intuitive app design.</p>
+</div>
+
+<img src="https://scontent-sjc2-1.xx.fbcdn.net/hphotos-ash2/t31.0-8/919085_4560288128292_1864542192_o.jpg" alt="Emma" style="width:250px;height:180px;">
+
+<img src="https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/994110_10205621469368351_6819742615381345622_n.jpg?oh=7605928fa07d73e06a43d87e99c907dc&oe=576DADAC" 
+alt="Daniel" style="width:200px;height:180px">
+
+<div id="header2"<
+<h2>Screenshots of IntelligenceCheck</h2>
+</div>
+
+<div id="imageGallery">    
+    <img id="image" src="http://adamyost.com/images/wasatch_thumb.gif" />
+    <div id="previous">Previous</div>    
+    <div id="next">Next</div>        
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script style=image-align:center;>
+    $( document ).ready(function() {
+
+        var images = [
+            "http://media.wizards.com/2015/images/dnd/resources/ADV_ChSheet.jpg",
+            "http://my-smashing.smashingapps.netdna-cdn.com/wp-content/uploads/2011/04/Birds-Eye-Photography/aerialphotos16.jpg",
+            "https://raw.githubusercontent.com/Valloric/statblock5e/gh-pages/images/statblock-2c.png"    
+			
+        ];
+
+        var imageIndex = 0;
+
+        $("#previous").on("click", function(){          
+            imageIndex = (imageIndex + images.length -1) % (images.length);    
+            $("#image").attr('src', images[imageIndex]);
+        });
+
+        $("#next").on("click", function(){
+            imageIndex = (imageIndex+1) % (images.length);    
+            $("#image").attr('src', images[imageIndex]);
+        });
+
+        $("#image").attr(images[0]);
+
+    });
+</script>
+
+<div id="footer">
+Lee & Whitaker
+</div>
+
+</body>
+
+</html>
