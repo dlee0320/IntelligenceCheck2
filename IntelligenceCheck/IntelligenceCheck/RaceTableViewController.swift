@@ -1,18 +1,17 @@
 //
-//  CharacterClassTableViewController.swift
+//  RaceTableViewController.swift
 //  IntelligenceCheck
 //
-//  Created by Daniel H Lee on 4/13/16.
+//  Created by Emma C Whitaker on 4/20/16.
 //  Copyright © 2016 Daniel H Lee. All rights reserved.
 //
 
 import UIKit
 
-class CharacterClassTableViewController: UITableViewController {
+class RaceTableViewController: UITableViewController {
 
     // MARK: Properties
-    
-    var classes = [Class]()
+    var races = [Race]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,52 +21,32 @@ class CharacterClassTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadRaces()
+    }
+    
+    func loadRaces(){
+        let race1 = Race(name: "Dwarf")
         
-        // Load the classes
-        loadClasses()
+        let race2 = Race(name: "Elf")
+        
+        let race3 = Race(name: "Halfling")
+        
+        let race4 = Race(name: "Human")
+        
+        let race5 = Race(name: "Dragonborn")
+        
+        let race6 = Race(name: "Gnome")
+
+        let race7 = Race(name: "Half-Elf")
+        
+        let race8 = Race(name: "Half-Orc")
+        
+        let race9 = Race(name: "Tiefling")
+        
+        races += [race1, race2, race3, race4, race5, race6, race7, race8, race9]
         
     }
 
-    func loadClasses(){
-        let photo1 = UIImage(named: "Barbarian")!
-        let class1 = Class(name: "Barbarian", photo: photo1)
-        
-        let photo2 = UIImage(named: "Bard")!
-        let class2 = Class(name: "Bard", photo: photo2)
-        
-        let photo3 = UIImage(named: "Cleric")!
-        let class3 = Class(name: "Cleric", photo: photo3)
-        
-        let photo4 = UIImage(named: "Druid")!
-        let class4 = Class(name: "Druid", photo: photo4)
-        
-        let photo5 = UIImage(named: "Fighter")!
-        let class5 = Class(name: "Fighter", photo: photo5)
-        
-        let photo6 = UIImage(named: "Monk")!
-        let class6 = Class(name: "Monk", photo: photo6)
-        
-        let photo7 = UIImage(named: "Paladin")!
-        let class7 = Class(name: "Paladin", photo: photo7)
-        
-        let photo8 = UIImage(named: "Ranger")!
-        let class8 = Class(name: "Ranger", photo: photo8)
-        
-        let photo9 = UIImage(named: "Rogue")!
-        let class9 = Class(name: "Rogue", photo: photo9)
-        
-        let photo10 = UIImage(named: "Sorceror")!
-        let class10 = Class(name: "Sorceror", photo: photo10)
-        
-        let photo11 = UIImage(named: "Warlock")!
-        let class11 = Class(name: "Warlock", photo: photo11)
-        
-        let photo12 = UIImage(named: "Wizard")!
-        let class12 = Class(name: "Wizard", photo: photo12)
-        
-        classes += [class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12]
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,21 +59,20 @@ class CharacterClassTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return classes.count
+        // #warning Incomplete implementation, return the number of rows
+        return races.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
-        let cellIdentifier = "CharacterClassTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CharacterClassTableViewCell
+        let cellIdentifier = "RaceTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RaceTableViewCell
         
         // Fetches the appropriate meal for the data source layout
-        let Class = classes[indexPath.row]
+        let Race = races[indexPath.row]
         
-        cell.classLabel.text = Class.name
-        cell.classImageView.image = Class.photo
+        cell.raceName.text = Race.name
 
         return cell
     }
@@ -135,14 +113,14 @@ class CharacterClassTableViewController: UITableViewController {
     }
     */
 
-    
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//    }
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
