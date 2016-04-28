@@ -12,10 +12,12 @@ import UIKit
 class Player {
     var name = ""
     var charClass : Class
+    var charRace : Race
     
     init() {
         let photo1 = UIImage(named: "Default")!
         self.charClass = Class(name: "No class chosen", photo: photo1)
+        self.charRace = Race(name: "No race chosen")
 
     }
 }

@@ -27,17 +27,25 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //let vc = sender as! CharacterSheetViewController;
         //self.player = vc.player;
-       if (segue.identifier == "ClassSegue")
+       if (segue.identifier == "sheetToClasses")
        {
             let nav = segue.destinationViewController as! UINavigationController
             let charClassVc = nav.viewControllers.first as! CharacterClassTableViewController
             charClassVc.player = self.player
        }
+        if (segue.identifier == "sheetToRaces")
+        {
+            let nav = segue.destinationViewController as! UINavigationController
+            let charRaceVc = nav.viewControllers.first as! RaceTableViewController
+            charRaceVc.player = self.player
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.className.text = self.player.charClass.name;
+        self.classRace.text = self.player.charRace.name;
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +68,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
 
     // MARK: Actions
     @IBOutlet weak var className: UILabel!
+    @IBOutlet weak var classRace: UILabel!
     
 }
 
