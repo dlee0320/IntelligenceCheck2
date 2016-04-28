@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Character Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odq-4v-VLQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Character Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odq-4v-VLQ">
                                         <rect key="frame" x="0.0" y="76" width="560" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
                                         <rect key="frame" x="54" y="0.0" width="82" height="30"/>
                                         <state key="normal" title="Select class"/>
                                         <connections>
-                                            <segue destination="86O-F9-b6j" kind="show" id="1IL-VM-pPx"/>
+                                            <segue destination="86O-F9-b6j" kind="presentation" identifier="ClassSegue" id="3u7-nv-mDE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -87,7 +87,7 @@
                                         <rect key="frame" x="50" y="0.0" width="78" height="30"/>
                                         <state key="normal" title="Select race"/>
                                         <connections>
-                                            <segue destination="xlm-tz-5OO" kind="show" id="jEj-u9-myr"/>
+                                            <segue destination="xlm-tz-5OO" kind="presentation" identifier="sheetToRaces" id="iK5-9t-pQA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -159,7 +159,7 @@
                     <navigationItem key="navigationItem" title="Character Classes" id="OFa-Cm-77H">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="cWS-xf-EJJ">
                             <connections>
-                                <segue destination="qzJ-WX-qBw" kind="show" id="Qd8-3W-1FA"/>
+                                <action selector="onDone:" destination="jdh-2x-ufL" id="nGM-LV-RRK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -203,11 +203,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Character Races" id="Ana-bU-Kcm">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="Nmg-Fr-biL"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Nmg-Fr-biL">
+                            <connections>
+                                <segue destination="qzJ-WX-qBw" kind="presentation" identifier="racesToSheet" id="1S8-hf-mCg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="qzJ-WX-qBw" kind="show" id="oK6-WX-5Tp"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgR-eM-KiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,7 +269,4 @@
             <point key="canvasLocation" x="2448" y="773"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oK6-WX-5Tp"/>
-    </inferredMetricsTieBreakers>
 </document>

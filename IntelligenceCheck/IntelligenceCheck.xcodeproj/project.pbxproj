@@ -10,6 +10,7 @@
 		1004854E1CC88C950075AD64 /* RaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004854D1CC88C950075AD64 /* RaceTableViewCell.swift */; };
 		100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */; };
 		100485521CC88D6E0075AD64 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100485511CC88D6D0075AD64 /* Race.swift */; };
+		10655BE91CCECC0A00665E08 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10655BE81CCECC0A00665E08 /* Player.swift */; };
 		90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */; };
 		90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CDB1CBF481100B3ED8F /* ViewController.swift */; };
 		90EB1CDF1CBF481100B3ED8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90EB1CDD1CBF481100B3ED8F /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		1004854D1CC88C950075AD64 /* RaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaceTableViewCell.swift; path = ../RaceTableViewCell.swift; sourceTree = "<group>"; };
 		1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceTableViewController.swift; sourceTree = "<group>"; };
 		100485511CC88D6D0075AD64 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		10655BE81CCECC0A00665E08 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		90EB1CD61CBF481000B3ED8F /* IntelligenceCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelligenceCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90EB1CDB1CBF481100B3ED8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				90EB1CE01CBF481100B3ED8F /* Assets.xcassets */,
 				90EB1CE21CBF481100B3ED8F /* LaunchScreen.storyboard */,
 				90EB1CE51CBF481100B3ED8F /* Info.plist */,
+				10655BE81CCECC0A00665E08 /* Player.swift */,
 			);
 			path = IntelligenceCheck;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				90EB1D0C1CBF4F5F00B3ED8F /* CharacterClassTableViewCell.swift in Sources */,
 				90EB1D101CBF534900B3ED8F /* Class.swift in Sources */,
 				90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */,
+				10655BE91CCECC0A00665E08 /* Player.swift in Sources */,
 				100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

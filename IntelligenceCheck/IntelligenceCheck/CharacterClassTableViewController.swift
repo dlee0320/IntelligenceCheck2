@@ -12,7 +12,10 @@ class CharacterClassTableViewController: UITableViewController {
 
     // MARK: Properties
     
+    var player : Player?;
+    
     var classes = [Class]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +82,10 @@ class CharacterClassTableViewController: UITableViewController {
         return 1
     }
 
+    @IBAction func onDone(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return classes.count
@@ -95,8 +102,25 @@ class CharacterClassTableViewController: UITableViewController {
         
         cell.classLabel.text = Class.name
         cell.classImageView.image = Class.photo
+        
+        if (self.player?.charClass.name == Class.name)
+        {
+            cell.accessoryType = .Checkmark
+        }
+        else
+        {
+            cell.accessoryType = .None
+        }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        self.player?.charClass = self.classes[row]
+        self.tableView.reloadData()
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 

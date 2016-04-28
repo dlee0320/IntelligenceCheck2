@@ -14,13 +14,30 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var nameEntry: UITextField!
 
     @IBOutlet weak var nameField: UILabel!
-    
+        
     var characterName: String? = "default"
+    var player : Player = Player()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Handle the text field's user input through delegate callbacks
         nameEntry.delegate = self
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //let vc = sender as! CharacterSheetViewController;
+        //self.player = vc.player;
+       if (segue.identifier == "ClassSegue")
+       {
+            let nav = segue.destinationViewController as! UINavigationController
+            let charClassVc = nav.viewControllers.first as! CharacterClassTableViewController
+            charClassVc.player = self.player
+       }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.className.text = self.player.charClass.name;
     }
 
     override func didReceiveMemoryWarning() {
