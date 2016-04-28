@@ -80,7 +80,7 @@ class CharacterClassTableViewController: UITableViewController {
     }
 
     @IBAction func onDone(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,7 +88,6 @@ class CharacterClassTableViewController: UITableViewController {
         return classes.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
         let cellIdentifier = "CharacterClassTableViewCell"

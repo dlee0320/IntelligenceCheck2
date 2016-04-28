@@ -62,16 +62,15 @@ class RaceTableViewController: UITableViewController {
         return 1
     }
 
+    @IBAction func onDone2(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return races.count
     }
 
-    
-    @IBAction func onDone2(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
         let cellIdentifier = "RaceTableViewCell"
