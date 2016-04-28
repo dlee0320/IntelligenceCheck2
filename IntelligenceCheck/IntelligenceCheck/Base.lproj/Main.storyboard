@@ -63,7 +63,7 @@
                                         <rect key="frame" x="54" y="0.0" width="82" height="30"/>
                                         <state key="normal" title="Select class"/>
                                         <connections>
-                                            <segue destination="86O-F9-b6j" kind="presentation" identifier="ClassSegue" id="3u7-nv-mDE"/>
+                                            <segue destination="86O-F9-b6j" kind="presentation" identifier="sheetToClasses" id="3u7-nv-mDE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -92,17 +92,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awX-vR-wKA">
-                                <rect key="frame" x="23" y="349" width="128" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Data Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxt-gz-vSv">
-                                <rect key="frame" x="25" y="320" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,6 +110,7 @@
                     <navigationItem key="navigationItem" title="Character Sheet" id="lW5-2q-LxG"/>
                     <connections>
                         <outlet property="className" destination="ywS-Yr-tUK" id="jUM-RA-eIf"/>
+                        <outlet property="classRace" destination="Ez4-E1-zb2" id="Wte-DU-UFD"/>
                         <outlet property="nameEntry" destination="VM5-eX-oPb" id="ALu-KP-otw"/>
                         <outlet property="nameField" destination="zxB-BE-O7u" id="FD1-Wc-jzV"/>
                     </connections>
@@ -188,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vHA-uc-e8X" customClass="RaceTableViewCell" customModule="IntelligenceCheck" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RaceTableViewCell" id="vHA-uc-e8X" customClass="RaceTableViewCell" customModule="IntelligenceCheck" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHA-uc-e8X" id="tsY-vV-fLO">
@@ -216,6 +206,7 @@
                     <navigationItem key="navigationItem" title="Character Races" id="Ana-bU-Kcm">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Nmg-Fr-biL">
                             <connections>
+                                <action selector="onDone2:" destination="6bR-9e-gzr" id="IJK-GT-QBB"/>
                                 <segue destination="qzJ-WX-qBw" kind="presentation" identifier="racesToSheet" id="1S8-hf-mCg"/>
                             </connections>
                         </barButtonItem>

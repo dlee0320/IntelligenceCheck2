@@ -11,6 +11,8 @@ import UIKit
 class RaceTableViewController: UITableViewController {
 
     // MARK: Properties
+    var player : Player?;
+    
     var races = [Race]()
     
     override func viewDidLoad() {
@@ -21,6 +23,8 @@ class RaceTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Load the races
         loadRaces()
     }
     
@@ -64,19 +68,40 @@ class RaceTableViewController: UITableViewController {
     }
 
     
+    @IBAction func onDone2(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
         let cellIdentifier = "RaceTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RaceTableViewCell
         
-        // Fetches the appropriate meal for the data source layout
+        // Fetches the appropriate race for the data source layout
         let Race = races[indexPath.row]
         
         cell.raceName.text = Race.name
 
+        
+        if (self.player?.charRace.name == Race.name)
+        {
+            cell.accessoryType = .Checkmark
+        }
+        else
+        {
+            cell.accessoryType = .None
+        }
+        
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        self.player?.charRace = self.races[row]
+        self.tableView.reloadData()
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.

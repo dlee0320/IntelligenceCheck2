@@ -11,11 +11,9 @@ import UIKit
 class CharacterClassTableViewController: UITableViewController {
 
     // MARK: Properties
-    
     var player : Player?;
     
     var classes = [Class]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,6 @@ class CharacterClassTableViewController: UITableViewController {
         
         // Load the classes
         loadClasses()
-        
     }
 
     func loadClasses(){
