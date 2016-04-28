@@ -12,6 +12,9 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
 
     // MARK: Properties
     @IBOutlet weak var nameEntry: UITextField!
+
+    @IBOutlet weak var nameField: UILabel!
+    
     var characterName: String? = "default"
     
     override func viewDidLoad() {
@@ -35,8 +38,11 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     func textFieldDidEndEditing(textField: UITextField) {
         nameEntry.text = textField.text
         characterName = nameEntry.text
+        nameField.text = nameEntry.text
     }
 
+    // MARK: Actions
+    @IBOutlet weak var className: UILabel!
     
 }
 

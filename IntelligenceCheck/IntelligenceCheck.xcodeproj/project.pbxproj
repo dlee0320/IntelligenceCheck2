@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1004854E1CC88C950075AD64 /* RaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004854D1CC88C950075AD64 /* RaceTableViewCell.swift */; };
+		100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */; };
+		100485521CC88D6E0075AD64 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100485511CC88D6D0075AD64 /* Race.swift */; };
 		90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */; };
 		90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CDB1CBF481100B3ED8F /* ViewController.swift */; };
 		90EB1CDF1CBF481100B3ED8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90EB1CDD1CBF481100B3ED8F /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1004854D1CC88C950075AD64 /* RaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RaceTableViewCell.swift; path = ../RaceTableViewCell.swift; sourceTree = "<group>"; };
+		1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceTableViewController.swift; sourceTree = "<group>"; };
+		100485511CC88D6D0075AD64 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		90EB1CD61CBF481000B3ED8F /* IntelligenceCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelligenceCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90EB1CDB1CBF481100B3ED8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,11 +109,14 @@
 		90EB1CD81CBF481000B3ED8F /* IntelligenceCheck */ = {
 			isa = PBXGroup;
 			children = (
+				1004854D1CC88C950075AD64 /* RaceTableViewCell.swift */,
 				90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */,
 				90EB1CDB1CBF481100B3ED8F /* ViewController.swift */,
 				90EB1CDD1CBF481100B3ED8F /* Main.storyboard */,
 				90EB1D0D1CBF509000B3ED8F /* CharacterClassTableViewController.swift */,
+				1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */,
 				90EB1D0F1CBF534900B3ED8F /* Class.swift */,
+				100485511CC88D6D0075AD64 /* Race.swift */,
 				90EB1D0B1CBF4F5F00B3ED8F /* CharacterClassTableViewCell.swift */,
 				90EB1CE01CBF481100B3ED8F /* Assets.xcassets */,
 				90EB1CE21CBF481100B3ED8F /* LaunchScreen.storyboard */,
@@ -196,7 +205,7 @@
 		90EB1CCE1CBF481000B3ED8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Daniel H Lee";
 				TargetAttributes = {
@@ -268,11 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100485521CC88D6E0075AD64 /* Race.swift in Sources */,
+				1004854E1CC88C950075AD64 /* RaceTableViewCell.swift in Sources */,
 				90EB1D0E1CBF509000B3ED8F /* CharacterClassTableViewController.swift in Sources */,
 				90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */,
 				90EB1D0C1CBF4F5F00B3ED8F /* CharacterClassTableViewCell.swift in Sources */,
 				90EB1D101CBF534900B3ED8F /* Class.swift in Sources */,
 				90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */,
+				100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +426,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IntelligenceCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LeeWhitGam.IntelligenceCheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -425,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IntelligenceCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LeeWhitGam.IntelligenceCheck;
@@ -499,6 +514,7 @@
 				90EB1D001CBF481100B3ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90EB1D011CBF481100B3ED8F /* Build configuration list for PBXNativeTarget "IntelligenceCheckTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +523,7 @@
 				90EB1D031CBF481100B3ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90EB1D041CBF481100B3ED8F /* Build configuration list for PBXNativeTarget "IntelligenceCheckUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +532,7 @@
 				90EB1D061CBF481100B3ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
