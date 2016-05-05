@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,6 +59,14 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         intEntry.delegate = self
         wisEntry.delegate = self
         chaEntry.delegate = self
+        
+        //test parse
+        
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
