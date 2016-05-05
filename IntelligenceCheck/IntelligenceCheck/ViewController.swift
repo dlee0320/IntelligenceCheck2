@@ -17,27 +17,27 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         
     var characterName: String? = "default"
     var player : Player = Player()
-    var responseData : NSMutableData = NSMutableData()
+    var data: NSMutableData = NSMutableData()
     //////
     var connection: NSURLConnection!
     
-    override class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
-        return request
+    func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+        // Recieved a new request, clear out the data object
+        self.data = NSMutableData()
     }
     
-    override class func requestIsCacheEquivalent(aRequest: NSURLRequest, toRequest bRequest: NSURLRequest) -> Bool {
-        return super.requestIsCacheEquivalent(aRequest, toRequest:bRequest)
+    func connection(connection: NSURLConnection!, didReceiveData conData: NSData!) {
+        // Append the recieved chunk of data to our data object
+        self.data.appendData(conData)
     }
     
-    override func startLoading() {
-        self.connection = NSURLConnection(request: self.request, delegate: self)
-    }
-    
-    override func stopLoading() {
-        if self.connection != nil {
-            self.connection.cancel()
-        }
-        self.connection = nil
+    func connectionDidFinishLoading(connection: NSURLConnection!) {
+        // Request complete, self.data should now hold the resulting info
+        // Convert the retrieved data in to an object through JSON deserialization
+        var err: NSError
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(self.data, options:    NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        
+        print(jsonResult.count)
     }
     //////
     
@@ -76,18 +76,18 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         // Dispose of any resources that can be recreated.
     }
     
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        self.client!.URLProtocol(self, didLoadData: data)
-        [responseData .appendData(_:data)]
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
-        self.client!.URLProtocolDidFinishLoading(self)
-    }
-    
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
-        self.client!.URLProtocol(self, didFailWithError: error)
-    }
+//    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+//        self.client!.URLProtocol(self, didLoadData: data)
+//        [responseData .appendData(_:data)]
+//    }
+//    
+//    func connectionDidFinishLoading(connection: NSURLConnection!) {
+//        self.client!.URLProtocolDidFinishLoading(self)
+//    }
+//    
+//    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+//        self.client!.URLProtocol(self, didFailWithError: error)
+//    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
