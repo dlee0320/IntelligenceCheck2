@@ -11,6 +11,18 @@
 		100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */; };
 		100485521CC88D6E0075AD64 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100485511CC88D6D0075AD64 /* Race.swift */; };
 		10655BE91CCECC0A00665E08 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10655BE81CCECC0A00665E08 /* Player.swift */; };
+		4CF8811F1CDAE13C00DA14D4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF8811E1CDAE13C00DA14D4 /* Parse.framework */; };
+		4CF881211CDAE14C00DA14D4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881201CDAE14C00DA14D4 /* Bolts.framework */; };
+		4CF8812C1CDAE1B900DA14D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881221CDAE1B900DA14D4 /* AudioToolbox.framework */; };
+		4CF8812D1CDAE1B900DA14D4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881231CDAE1B900DA14D4 /* CFNetwork.framework */; };
+		4CF8812E1CDAE1B900DA14D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881241CDAE1B900DA14D4 /* CoreGraphics.framework */; };
+		4CF8812F1CDAE1B900DA14D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881251CDAE1B900DA14D4 /* CoreLocation.framework */; };
+		4CF881301CDAE1B900DA14D4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881261CDAE1B900DA14D4 /* libsqlite3.tbd */; };
+		4CF881311CDAE1B900DA14D4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881271CDAE1B900DA14D4 /* libz.tbd */; };
+		4CF881321CDAE1B900DA14D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881281CDAE1B900DA14D4 /* QuartzCore.framework */; };
+		4CF881331CDAE1B900DA14D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF881291CDAE1B900DA14D4 /* Security.framework */; };
+		4CF881341CDAE1B900DA14D4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF8812A1CDAE1B900DA14D4 /* StoreKit.framework */; };
+		4CF881351CDAE1B900DA14D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF8812B1CDAE1B900DA14D4 /* SystemConfiguration.framework */; };
 		90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */; };
 		90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CDB1CBF481100B3ED8F /* ViewController.swift */; };
 		90EB1CDF1CBF481100B3ED8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90EB1CDD1CBF481100B3ED8F /* Main.storyboard */; };
@@ -45,6 +57,19 @@
 		1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceTableViewController.swift; sourceTree = "<group>"; };
 		100485511CC88D6D0075AD64 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		10655BE81CCECC0A00665E08 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4C4DDA9C1CD975F200506BAD /* IntelligenceCheck_BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligenceCheck_BridgingHeader.h; sourceTree = "<group>"; };
+		4CF8811E1CDAE13C00DA14D4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4CF881201CDAE14C00DA14D4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4CF881221CDAE1B900DA14D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4CF881231CDAE1B900DA14D4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4CF881241CDAE1B900DA14D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4CF881251CDAE1B900DA14D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4CF881261CDAE1B900DA14D4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		4CF881271CDAE1B900DA14D4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4CF881281CDAE1B900DA14D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4CF881291CDAE1B900DA14D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4CF8812A1CDAE1B900DA14D4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4CF8812B1CDAE1B900DA14D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		90EB1CD61CBF481000B3ED8F /* IntelligenceCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelligenceCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90EB1CDB1CBF481100B3ED8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +93,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF8812C1CDAE1B900DA14D4 /* AudioToolbox.framework in Frameworks */,
+				4CF8812D1CDAE1B900DA14D4 /* CFNetwork.framework in Frameworks */,
+				4CF8812E1CDAE1B900DA14D4 /* CoreGraphics.framework in Frameworks */,
+				4CF8812F1CDAE1B900DA14D4 /* CoreLocation.framework in Frameworks */,
+				4CF881301CDAE1B900DA14D4 /* libsqlite3.tbd in Frameworks */,
+				4CF881311CDAE1B900DA14D4 /* libz.tbd in Frameworks */,
+				4CF881321CDAE1B900DA14D4 /* QuartzCore.framework in Frameworks */,
+				4CF881331CDAE1B900DA14D4 /* Security.framework in Frameworks */,
+				4CF881341CDAE1B900DA14D4 /* StoreKit.framework in Frameworks */,
+				4CF881351CDAE1B900DA14D4 /* SystemConfiguration.framework in Frameworks */,
+				4CF8811F1CDAE13C00DA14D4 /* Parse.framework in Frameworks */,
+				4CF881211CDAE14C00DA14D4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,9 +125,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CF8810D1CDADDDD00DA14D4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CF881201CDAE14C00DA14D4 /* Bolts.framework */,
+				4CF8811E1CDAE13C00DA14D4 /* Parse.framework */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		90EB1CCD1CBF481000B3ED8F = {
 			isa = PBXGroup;
 			children = (
+				4CF881221CDAE1B900DA14D4 /* AudioToolbox.framework */,
+				4CF881231CDAE1B900DA14D4 /* CFNetwork.framework */,
+				4CF881241CDAE1B900DA14D4 /* CoreGraphics.framework */,
+				4CF881251CDAE1B900DA14D4 /* CoreLocation.framework */,
+				4CF881261CDAE1B900DA14D4 /* libsqlite3.tbd */,
+				4CF881271CDAE1B900DA14D4 /* libz.tbd */,
+				4CF881281CDAE1B900DA14D4 /* QuartzCore.framework */,
+				4CF881291CDAE1B900DA14D4 /* Security.framework */,
+				4CF8812A1CDAE1B900DA14D4 /* StoreKit.framework */,
+				4CF8812B1CDAE1B900DA14D4 /* SystemConfiguration.framework */,
+				4CF8810D1CDADDDD00DA14D4 /* Resources */,
 				90EB1CD81CBF481000B3ED8F /* IntelligenceCheck */,
 				90EB1CED1CBF481100B3ED8F /* IntelligenceCheckTests */,
 				90EB1CF81CBF481100B3ED8F /* IntelligenceCheckUITests */,
@@ -111,6 +168,7 @@
 		90EB1CD81CBF481000B3ED8F /* IntelligenceCheck */ = {
 			isa = PBXGroup;
 			children = (
+				4C4DDA9C1CD975F200506BAD /* IntelligenceCheck_BridgingHeader.h */,
 				90EB1CDD1CBF481100B3ED8F /* Main.storyboard */,
 				90EB1CDB1CBF481100B3ED8F /* ViewController.swift */,
 				90EB1D0D1CBF509000B3ED8F /* CharacterClassTableViewController.swift */,
@@ -431,10 +489,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IntelligenceCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LeeWhitGam.IntelligenceCheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -444,10 +507,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IntelligenceCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LeeWhitGam.IntelligenceCheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

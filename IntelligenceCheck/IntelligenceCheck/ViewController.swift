@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,NSURLConnectionDelegate {
 
@@ -18,33 +19,45 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     var characterName: String? = "default"
     var player : Player = Player()
     var responseData : NSMutableData = NSMutableData()
-    //////
-    var connection: NSURLConnection!
+  
+
     
-    override class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
-        return request
-    }
-    
-    override class func requestIsCacheEquivalent(aRequest: NSURLRequest, toRequest bRequest: NSURLRequest) -> Bool {
-        return super.requestIsCacheEquivalent(aRequest, toRequest:bRequest)
-    }
-    
-    override func startLoading() {
-        self.connection = NSURLConnection(request: self.request, delegate: self)
-    }
-    
-    override func stopLoading() {
-        if self.connection != nil {
-            self.connection.cancel()
-        }
-        self.connection = nil
-    }
-    //////
+/////////
+//
+//    var connection: NSURLConnection!
+//    
+//    override class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
+//        return request
+//    }
+//    
+//    override class func requestIsCacheEquivalent(aRequest: NSURLRequest, toRequest bRequest: NSURLRequest) -> Bool {
+//        return super.requestIsCacheEquivalent(aRequest, toRequest:bRequest)
+//    }
+//    
+//    override func startLoading() {
+//        self.connection = NSURLConnection(request: self.request, delegate: self)
+//    }
+//    
+//    override func stopLoading() {
+//        if self.connection != nil {
+//            self.connection.cancel()
+//        }
+//        self.connection = nil
+//    }
+/////////
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Handle the text field's user input through delegate callbacks
         nameEntry.delegate = self
+        
+        
+        //test
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -76,18 +89,18 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         // Dispose of any resources that can be recreated.
     }
     
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        self.client!.URLProtocol(self, didLoadData: data)
-        [responseData .appendData(_:data)]
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
-        self.client!.URLProtocolDidFinishLoading(self)
-    }
-    
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
-        self.client!.URLProtocol(self, didFailWithError: error)
-    }
+//    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+//        self.client!.URLProtocol(self, didLoadData: data)
+//        [responseData .appendData(_:data)]
+//    }
+//    
+//    func connectionDidFinishLoading(connection: NSURLConnection!) {
+//        self.client!.URLProtocolDidFinishLoading(self)
+//    }
+//    
+//    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+//        self.client!.URLProtocol(self, didFailWithError: error)
+//    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
