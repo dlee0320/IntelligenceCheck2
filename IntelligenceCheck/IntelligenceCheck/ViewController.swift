@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,9 +59,18 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         intEntry.delegate = self
         wisEntry.delegate = self
         chaEntry.delegate = self
+        
+        //test parse!!!
+        
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+            
+        ////
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //let vc = sender as! CharacterSheetViewController;
         //self.player = vc.player;
        if (segue.identifier == "sheetToClasses")
@@ -78,13 +88,13 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.className.text = self.player.charClass.name;
-        self.classRace.text = self.player.charRace.name;
+//        self.className.text = self.player.charClass.name;
+//        self.classRace.text = self.player.charRace.name;
     }
 
-    override func didReceiveMemoryWarning() {
+    func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -156,9 +166,10 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         
     }
 
-    // MARK: Actions
-    @IBOutlet weak var className: UILabel!
-    @IBOutlet weak var classRace: UILabel!
+//    // MARK: Actions
+    weak var className: UILabel!
+    weak var classRace: UILabel!
     
 }
 
+}
