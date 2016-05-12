@@ -10,6 +10,9 @@ import UIKit
 
 class BackgroundTableViewCell: UITableViewCell {
 
+    // MARK: Properties
+    @IBOutlet weak var backName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

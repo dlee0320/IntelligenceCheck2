@@ -12,7 +12,8 @@ import Parse
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
-    @IBOutlet weak var nameEntry: UITextField!
+    @IBOutlet weak var charNameEntry: UITextField!
+    @IBOutlet weak var playerNameEntry: UITextField!
     @IBOutlet weak var levelEntry: UITextField!
     @IBOutlet weak var profEntry: UITextField!
     @IBOutlet weak var strEntry: UITextField!
@@ -28,7 +29,9 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var wisMod: UILabel!
     @IBOutlet weak var chaMod: UILabel!
 
-    @IBOutlet weak var nameField: UILabel!
+
+    @IBOutlet weak var charNameField: UILabel!
+    @IBOutlet weak var playerNameField: UILabel!
     
     var level = "0"
     var prof = "2"
@@ -50,7 +53,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
         // Handle the text field's user input through delegate callbacks
-        nameEntry.delegate = self
+        charNameEntry.delegate = self
+        playerNameEntry.delegate = self
         levelEntry.delegate = self
         profEntry.delegate = self
         strEntry.delegate = self
@@ -60,13 +64,13 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         wisEntry.delegate = self
         chaEntry.delegate = self
         
-        //test parse
+       /* //test parse
         
         let testObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("Object has been saved.")
-        }
+        }*/
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -84,6 +88,18 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
             let charRaceVc = nav.viewControllers.first as! RaceTableViewController
             charRaceVc.player = self.player
         }
+        if (segue.identifier == "sheetToAlign")
+        {
+            let nav = segue.destinationViewController as! UINavigationController
+            let charAlignmentVc = nav.viewControllers.first as! AlignmentTableViewController
+            charAlignmentVc.player = self.player
+        }
+        if (segue.identifier == "sheetToBack")
+        {
+            let nav = segue.destinationViewController as! UINavigationController
+            let charBackgroundVc = nav.viewControllers.first as! BackgroundTableViewController
+            charBackgroundVc.player = self.player
+        }
         
     }
     
@@ -91,6 +107,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         super.viewWillAppear(animated)
         self.className.text = self.player.charClass.name;
         self.classRace.text = self.player.charRace.name;
+        self.classAlign.text = self.player.charAlign.align;
+        self.classBack.text = self.player.charBack.name;
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,7 +119,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Hide the keyboard
-        nameEntry.resignFirstResponder()
+        charNameEntry.resignFirstResponder()
+        playerNameEntry.resignFirstResponder()
         levelEntry.resignFirstResponder()
         profEntry.resignFirstResponder()
         strEntry.resignFirstResponder()
@@ -114,7 +133,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        nameField.text = nameEntry.text
+        charNameField.text = charNameEntry.text
+        playerNameField.text = playerNameEntry.text
         str = strEntry.text!
         dex = dexEntry.text!
         con = conEntry.text!
@@ -440,7 +460,9 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
 
     // MARK: Actions
     @IBOutlet weak var className: UILabel!
+    //
     @IBOutlet weak var classRace: UILabel!
-    
+    @IBOutlet weak var classAlign: UILabel!
+    @IBOutlet weak var classBack: UILabel!
 }
 

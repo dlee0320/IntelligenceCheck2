@@ -6,4 +6,21 @@
 //  Copyright © 2016 Daniel H Lee. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class Background{
+
+// MARK: Properties
+
+var name: String
+
+// MARK: Initialization
+
+init(name: String){
+    // Initialize stored properties
+    self.name = name
+}
+
+
+}
+

@@ -22,6 +22,12 @@
 		10224C701CDAF78B00587B9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10224C661CDAF78B00587B9F /* Security.framework */; };
 		10224C711CDAF78B00587B9F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10224C671CDAF78B00587B9F /* StoreKit.framework */; };
 		10224C721CDAF78B00587B9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10224C681CDAF78B00587B9F /* SystemConfiguration.framework */; };
+		105A5C9A1CE421E200A73940 /* AlignmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5C991CE421E200A73940 /* AlignmentTableViewController.swift */; };
+		105A5C9C1CE421F400A73940 /* BackgroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5C9B1CE421F400A73940 /* BackgroundTableViewController.swift */; };
+		105A5C9E1CE4221300A73940 /* AlignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5C9D1CE4221300A73940 /* AlignmentTableViewCell.swift */; };
+		105A5CA01CE4221E00A73940 /* BackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5C9F1CE4221E00A73940 /* BackgroundTableViewCell.swift */; };
+		105A5CA21CE422A800A73940 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5CA11CE422A800A73940 /* Alignment.swift */; };
+		105A5CA41CE42BB200A73940 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A5CA31CE42BB200A73940 /* Background.swift */; };
 		10655BE91CCECC0A00665E08 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10655BE81CCECC0A00665E08 /* Player.swift */; };
 		90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */; };
 		90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB1CDB1CBF481100B3ED8F /* ViewController.swift */; };
@@ -68,6 +74,12 @@
 		10224C661CDAF78B00587B9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		10224C671CDAF78B00587B9F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		10224C681CDAF78B00587B9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		105A5C991CE421E200A73940 /* AlignmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentTableViewController.swift; sourceTree = "<group>"; };
+		105A5C9B1CE421F400A73940 /* BackgroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewController.swift; sourceTree = "<group>"; };
+		105A5C9D1CE4221300A73940 /* AlignmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentTableViewCell.swift; sourceTree = "<group>"; };
+		105A5C9F1CE4221E00A73940 /* BackgroundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewCell.swift; sourceTree = "<group>"; };
+		105A5CA11CE422A800A73940 /* Alignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
+		105A5CA31CE42BB200A73940 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		10655BE81CCECC0A00665E08 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		90EB1CD61CBF481000B3ED8F /* IntelligenceCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelligenceCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +181,10 @@
 				10224C5A1CDAF72000587B9F /* Resources */,
 				90EB1CDD1CBF481100B3ED8F /* Main.storyboard */,
 				90EB1CDB1CBF481100B3ED8F /* ViewController.swift */,
+				105A5C991CE421E200A73940 /* AlignmentTableViewController.swift */,
+				105A5C9D1CE4221300A73940 /* AlignmentTableViewCell.swift */,
+				105A5C9B1CE421F400A73940 /* BackgroundTableViewController.swift */,
+				105A5C9F1CE4221E00A73940 /* BackgroundTableViewCell.swift */,
 				90EB1D0D1CBF509000B3ED8F /* CharacterClassTableViewController.swift */,
 				90EB1D0B1CBF4F5F00B3ED8F /* CharacterClassTableViewCell.swift */,
 				1004854F1CC88D2D0075AD64 /* RaceTableViewController.swift */,
@@ -176,6 +192,8 @@
 				10655BE81CCECC0A00665E08 /* Player.swift */,
 				90EB1D0F1CBF534900B3ED8F /* Class.swift */,
 				100485511CC88D6D0075AD64 /* Race.swift */,
+				105A5CA31CE42BB200A73940 /* Background.swift */,
+				105A5CA11CE422A800A73940 /* Alignment.swift */,
 				90EB1CE01CBF481100B3ED8F /* Assets.xcassets */,
 				90EB1CD91CBF481100B3ED8F /* AppDelegate.swift */,
 				90EB1CE21CBF481100B3ED8F /* LaunchScreen.storyboard */,
@@ -337,14 +355,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				100485521CC88D6E0075AD64 /* Race.swift in Sources */,
+				105A5C9C1CE421F400A73940 /* BackgroundTableViewController.swift in Sources */,
 				1004854E1CC88C950075AD64 /* RaceTableViewCell.swift in Sources */,
+				105A5CA21CE422A800A73940 /* Alignment.swift in Sources */,
+				105A5CA01CE4221E00A73940 /* BackgroundTableViewCell.swift in Sources */,
 				90EB1D0E1CBF509000B3ED8F /* CharacterClassTableViewController.swift in Sources */,
 				90EB1CDC1CBF481100B3ED8F /* ViewController.swift in Sources */,
 				90EB1D0C1CBF4F5F00B3ED8F /* CharacterClassTableViewCell.swift in Sources */,
 				90EB1D101CBF534900B3ED8F /* Class.swift in Sources */,
 				90EB1CDA1CBF481100B3ED8F /* AppDelegate.swift in Sources */,
 				10655BE91CCECC0A00665E08 /* Player.swift in Sources */,
+				105A5C9E1CE4221300A73940 /* AlignmentTableViewCell.swift in Sources */,
 				100485501CC88D2D0075AD64 /* RaceTableViewController.swift in Sources */,
+				105A5C9A1CE421E200A73940 /* AlignmentTableViewController.swift in Sources */,
+				105A5CA41CE42BB200A73940 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

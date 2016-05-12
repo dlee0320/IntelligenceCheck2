@@ -10,6 +10,10 @@ import UIKit
 
 class AlignmentTableViewCell: UITableViewCell {
 
+    // MARK: Properties
+    @IBOutlet weak var alignName: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

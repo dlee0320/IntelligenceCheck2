@@ -10,14 +10,45 @@ import UIKit
 
 class AlignmentTableViewController: UITableViewController {
 
+    // MARK: Properties
+    var player : Player?;
+    
+    var alignments = [Alignment]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Load the alignments
+        loadAlignments()
+    }
+    
+    func loadAlignments(){
+        let alignment1 = Alignment(align: "Lawful Good")
+        
+        let alignment2 = Alignment(align: "Lawful Neutral")
+        
+        let alignment3 = Alignment(align: "Lawful Evil")
+        
+        let alignment4 = Alignment(align: "Neutral Good")
+        
+        let alignment5 = Alignment(align: "True Neutral")
+        
+        let alignment6 = Alignment(align: "Neutral Evil")
+        
+        let alignment7 = Alignment(align: "Chaotic Good")
+        
+        let alignment8 = Alignment(align: "Chaotic Neutral")
+        
+        let alignment9 = Alignment(align: "Chaotic Evil")
+        
+        alignments += [alignment1, alignment2, alignment3, alignment4, alignment5, alignment6, alignment7, alignment8, alignment9]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +59,49 @@ class AlignmentTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
+    @IBAction func onDone3(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return alignments.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        // Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "AlignmentTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AlignmentTableViewCell
+        
+        // Fetches the appropriate alignment for the data source layout
+        let Alignment = alignments[indexPath.row]
+        
+        cell.alignName.text = Alignment.align
 
-        // Configure the cell...
-
+        
+        if (self.player?.charAlign.align == Alignment.align)
+        {
+            cell.accessoryType = .Checkmark
+        }
+        else
+        {
+            cell.accessoryType = .None
+        }
+        
         return cell
     }
-    */
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        self.player?.charAlign = self.alignments[row]
+        self.tableView.reloadData()
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.
