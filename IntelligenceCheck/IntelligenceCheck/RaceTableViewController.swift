@@ -28,6 +28,7 @@ class RaceTableViewController: UITableViewController {
         loadRaces()
     }
     
+    //load the races to cell
     func loadRaces(){
         let race1 = Race(name: "Dwarf")
         

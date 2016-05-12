@@ -31,6 +31,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
 
     @IBOutlet weak var nameField: UILabel!
     
+    //default values
     var level = "0"
     var prof = "2"
     var str = "8"
@@ -60,14 +61,6 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         intEntry.delegate = self
         wisEntry.delegate = self
         chaEntry.delegate = self
-        
-        //test parse
-        
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            print("Object has been saved.")
-//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -116,13 +109,13 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     
     func textFieldDidEndEditing(textField: UITextField) {
         
-        //declare parse object
+        //declare parse object//
         let Player = PFObject(className: "Players")
         
-        //enter text into name
+        //enter data//
         nameField.text = nameEntry.text
         
-        //save name to database
+        //save
         Player["PlayerName"] = nameEntry.text;
 
         //strength
@@ -217,6 +210,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         
         ////
         
+        //vales for math on the side of the text boxes
         if (str == "8"){
             strValue = "-1"
             strMod.text = strValue

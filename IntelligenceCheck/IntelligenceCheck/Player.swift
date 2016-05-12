@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//default player class
 class Player {
     var name = ""
     var charClass : Class

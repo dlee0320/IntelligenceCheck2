@@ -28,6 +28,7 @@ class CharacterClassTableViewController: UITableViewController {
         loadClasses()
     }
 
+    //display classes and photos
     func loadClasses(){
         let photo1 = UIImage(named: "Barbarian")!
         let class1 = Class(name: "Barbarian", photo: photo1)
