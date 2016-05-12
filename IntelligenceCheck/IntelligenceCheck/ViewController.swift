@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,6 +60,14 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         intEntry.delegate = self
         wisEntry.delegate = self
         chaEntry.delegate = self
+        
+        //test parse
+        
+//        let testObject = PFObject(className: "TestObject")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            print("Object has been saved.")
+//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -105,14 +115,107 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        
+        //declare parse object
+        let Player = PFObject(className: "Players")
+        
+        //enter text into name
         nameField.text = nameEntry.text
+        
+        //save name to database
+        Player["PlayerName"] = nameEntry.text;
+
+        //strength
         str = strEntry.text!
+        
+        //convert to int
+        let parseStr:Int? = Int(strEntry.text!)
+        
+        //save
+        if parseStr != Player["strengthPoints"] as? Int {
+        Player["strengthPoints"] = parseStr
+        }
+        else { Player["strengthPoints"] = 0 }
+        
+        //dexterity
         dex = dexEntry.text!
+        //convert to int
+        let parseDex:Int? = Int(dexEntry.text!)
+        
+        //save
+        if parseDex != Player["dexterityPoints"] as? Int {
+            Player["dexterityPoints"] = parseDex
+        }
+        else { Player["dexterityPoints"] = 0 }
+        
+        //constitution
         con = conEntry.text!
+        //convert to int
+        let parseCon:Int? = Int(conEntry.text!)
+        
+        //save
+        if parseCon != Player["constitutionPoints"] as? Int {
+            Player["constitutionPoints"] = parseCon
+        }
+        else { Player["constitutionPoints"] = 0 }
+        
+        //intelligence
         int = intEntry.text!
+        //convert to int
+        let parseInt:Int? = Int(intEntry.text!)
+        
+        //save
+        if parseInt != Player["intelligencePoints"] as? Int {
+            Player["intelligencePoints"] = parseInt
+        }
+        else { Player["intelligencePoints"] = 0 }
+        
+        //wisdom
         wis = wisEntry.text!
+        //convert to int
+        let parseWis:Int? = Int(wisEntry.text!)
+        
+        //save
+        if parseWis != Player["wisdomPoints"] as? Int {
+            Player["wisdomPoints"] = parseWis
+        }
+        else { Player["wisomPoints"] = 0 }
+        
+        //charisma
         cha = chaEntry.text!
+        //convert to int
+        let parseCha:Int? = Int(chaEntry.text!)
+        
+        //save
+        if parseCha != Player["charismaPoints"] as? Int {
+            Player["charismaPoints"] = parseCha
+        }
+        else { Player["charismaPoints"] = 0 }
+        
+        //profficiency
         prof = profEntry.text!
+        //convert to int
+        let parseProf:Int? = Int(profEntry.text!)
+        
+        //save
+        if parseProf != Player["proficiencyBonus"] as? Int {
+            Player["proficiencyBonus"] = parseProf
+        }
+        else { Player["proficiencyBonus"] = 0 }
+        
+        //parse save//
+        
+        Player.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                //object has been saved
+            }
+            else {
+                //there was a problem...
+            }
+        }
+        
+        ////
         
         if (str == "8"){
             strValue = "-1"
