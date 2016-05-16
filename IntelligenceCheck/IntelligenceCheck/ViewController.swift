@@ -30,6 +30,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var chaMod: UILabel!
 
     @IBOutlet weak var nameField: UILabel!
+    var spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
     //default values
     var level = "0"
@@ -48,6 +49,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     var wisValue = ""
     var chaValue = ""
     var player : Player = Player()
+    var PFPlayer: PFObject = PFObject(className: "Player")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,11 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         intEntry.delegate = self
         wisEntry.delegate = self
         chaEntry.delegate = self
+        
+        self.view.addSubview(self.spinner)
+        self.spinner.hidden = true
+        self.view.addConstraint( NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.spinner, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
+        self.view.addConstraint( NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.spinner, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0))
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -108,61 +116,115 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        self.spinner.hidden = false
+        self.spinner.startAnimating()
         
-        //declare parse object//
-        let Player = PFObject(className: "Players")
-        
+        if self.PFPlayer.objectForKey("PlayerName") == nil
+        {
+        let query = PFQuery(className: "Players")
+        query.whereKey("PlayerName", equalTo: nameEntry.text!)
+        query.findObjectsInBackgroundWithBlock { (results, error) in
+            
+            self.spinner.stopAnimating()
+            self.spinner.hidden = true
+            
+            if results?.count > 0
+            {
+                self.PFPlayer = results![0]
+                self.readFromParse()
+            }
+            else
+            {
+                //declare parse object//
+                self.PFPlayer = PFObject(className: "Players")
+                
+                //save
+                self.PFPlayer["PlayerName"] = self.nameEntry.text;
+            }
+            self.saveToParse()
+            }
+        }
+        else
+        {
+            self.saveToParse()
+        }
+    }
+    
+    
+    func readFromParse()
+    {
+        if let strength = self.PFPlayer.objectForKey("strengthPoints") as! Int?
+        {
+            self.strEntry.text = String(strength)
+        }
+        if let dexterity = self.PFPlayer.objectForKey("dexterityPoints") as! Int?
+        {
+            self.dexEntry.text = String(dexterity)
+        }
+        if let constitution = self.PFPlayer.objectForKey("constitutionPoints") as! Int?
+        {
+            self.conEntry.text = String(constitution)
+        }
+    }
+    
+    func saveToParse()
+    {
+    
         //enter data//
         nameField.text = nameEntry.text
-        
-        //save
-        Player["PlayerName"] = nameEntry.text;
 
         //strength
         str = strEntry.text!
         
         //convert to int
-        let parseStr:Int? = Int(strEntry.text!)
-        
-        //save
-        if parseStr != Player["strengthPoints"] as? Int {
-        Player["strengthPoints"] = parseStr
+        if let parseStr:Int = Int(strEntry.text!)
+        {
+            self.PFPlayer.setObject(parseStr, forKey: "strengthPoints")
         }
-        else { Player["strengthPoints"] = 0 }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "strengthPoints")
+        }
         
         //dexterity
         dex = dexEntry.text!
+        
         //convert to int
-        let parseDex:Int? = Int(dexEntry.text!)
-        
-        //save
-        if parseDex != Player["dexterityPoints"] as? Int {
-            Player["dexterityPoints"] = parseDex
+        if let parseDex:Int = Int(dexEntry.text!)
+        {
+            self.PFPlayer.setObject(parseDex, forKey: "dexterityPoints")
         }
-        else { Player["dexterityPoints"] = 0 }
-        
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "dexterityPoints")
+        }
+       
         //constitution
         con = conEntry.text!
-        //convert to int
-        let parseCon:Int? = Int(conEntry.text!)
         
         //save
-        if parseCon != Player["constitutionPoints"] as? Int {
-            Player["constitutionPoints"] = parseCon
+        if let parseCon:Int = Int(conEntry.text!)
+        {
+            self.PFPlayer.setObject(parseCon, forKey: "constitutionPoints")
         }
-        else { Player["constitutionPoints"] = 0 }
-        
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "constitutionPoints")
+        }
+       
         //intelligence
         int = intEntry.text!
-        //convert to int
-        let parseInt:Int? = Int(intEntry.text!)
         
         //save
-        if parseInt != Player["intelligencePoints"] as? Int {
-            Player["intelligencePoints"] = parseInt
+        if let parseInt:Int = Int(intEntry.text!)
+        {
+            self.PFPlayer.setObject(parseInt, forKey: "intelligencePoints")
         }
-        else { Player["intelligencePoints"] = 0 }
-        
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "intelligencePoints")
+        }
+       /*
         //wisdom
         wis = wisEntry.text!
         //convert to int
@@ -195,10 +257,11 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
             Player["proficiencyBonus"] = parseProf
         }
         else { Player["proficiencyBonus"] = 0 }
+       */
         
         //parse save//
         
-        Player.saveInBackgroundWithBlock {
+        self.PFPlayer.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 //object has been saved
@@ -531,4 +594,3 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var classRace: UILabel!
     
 }
-
