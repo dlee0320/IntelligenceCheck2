@@ -213,11 +213,12 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         if let Class = self.PFPlayer.objectForKey("class") as! String?
         {
             self.player.charClass.name = String(Class)
+            className.text? = Class
         }
         if let race = self.PFPlayer.objectForKey("race") as! String?
         {
             self.player.charRace.name = String(race)
-            
+            classRace.text? = race
         }
     }
     
