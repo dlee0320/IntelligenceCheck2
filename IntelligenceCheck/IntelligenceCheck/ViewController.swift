@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Bolts
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -32,6 +33,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
 
     @IBOutlet weak var charNameField: UILabel!
     @IBOutlet weak var playerNameField: UILabel!
+    var spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
     var level = "0"
     var prof = "2"
@@ -49,6 +51,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     var wisValue = ""
     var chaValue = ""
     var player : Player = Player()
+    var PFPlayer: PFObject = PFObject(className: "Player")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,13 +67,10 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         wisEntry.delegate = self
         chaEntry.delegate = self
         
-       /* //test parse
-        
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }*/
+        self.view.addSubview(self.spinner)
+        self.spinner.hidden = true
+        self.view.addConstraint( NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.spinner, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
+        self.view.addConstraint( NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.spinner, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0))
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -109,6 +109,55 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         self.classRace.text = self.player.charRace.name;
         self.classAlign.text = self.player.charAlign.align;
         self.classBack.text = self.player.charBack.name;
+        
+        //save class
+        if let parseClass:String = String(self.player.charClass.name)
+        {
+            self.PFPlayer.setObject(parseClass, forKey: "class")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "class")
+            self.saveToParse()
+        }
+        
+        //save race
+        if let parseRace:String = String(self.player.charRace.name)
+        {
+            self.PFPlayer.setObject(parseRace, forKey: "race")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "race")
+            self.saveToParse()
+        }
+        
+        //save alignment
+        if let parseAlign:String = String(self.player.charAlign.align)
+        {
+            self.PFPlayer.setObject(parseAlign, forKey: "alignment")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "alignment")
+            self.saveToParse()
+        }
+        
+        //save background
+        if let parseBack:String = String(self.player.charBack.name)
+        {
+            self.PFPlayer.setObject(parseBack, forKey: "background")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "background")
+            self.saveToParse()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -131,6 +180,232 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         chaEntry.resignFirstResponder()
         return true
     }
+    
+    // will check parse for another user by this name and will update view with previous values if name previously entered
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.spinner.hidden = false
+        self.spinner.startAnimating()
+        
+        if self.PFPlayer.objectForKey("PlayerName") == nil
+        {
+            let query = PFQuery(className: "Players")
+            query.whereKey("PlayerName", equalTo: playerNameEntry.text!)
+            query.findObjectsInBackgroundWithBlock { (results, error) in
+                
+                self.spinner.stopAnimating()
+                self.spinner.hidden = true
+                
+                if results?.count > 0
+                {
+                    self.PFPlayer = results![0]
+                    self.readFromParse()
+                }
+                else
+                {
+                    //declare parse object//
+                    self.PFPlayer = PFObject(className: "Players")
+                    
+                    //save
+                    self.PFPlayer["PlayerName"] = self.charNameEntry.text;
+                }
+                self.saveToParse()
+            }
+        }
+        else
+        {
+            self.saveToParse()
+        }
+    }
+    
+    //scans parse server for entry and updates text field
+    func readFromParse()
+    {
+        if let strength = self.PFPlayer.objectForKey("strengthPoints") as! Int?
+        {
+            self.strEntry.text = String(strength)
+        }
+        if let dexterity = self.PFPlayer.objectForKey("dexterityPoints") as! Int?
+        {
+            self.dexEntry.text = String(dexterity)
+        }
+        if let constitution = self.PFPlayer.objectForKey("constitutionPoints") as! Int?
+        {
+            self.conEntry.text = String(constitution)
+        }
+        if let intelligence = self.PFPlayer.objectForKey("intelligencePoints") as! Int?
+        {
+            self.intEntry.text = String(intelligence)
+        }
+        if let wisdom = self.PFPlayer.objectForKey("wisdomPoints") as! Int?
+        {
+            self.wisEntry.text = String(wisdom)
+        }
+        if let charisma = self.PFPlayer.objectForKey("charismaPoints") as! Int?
+        {
+            self.chaEntry.text = String(charisma)
+        }
+        if let proficiency = self.PFPlayer.objectForKey("proficiencyBonus") as! Int?
+        {
+            self.profEntry.text = String(proficiency)
+        }
+        if let level = self.PFPlayer.objectForKey("level") as! Int?
+        {
+            self.levelEntry.text = String(level)
+        }
+        if let Class = self.PFPlayer.objectForKey("class") as! String?
+        {
+            self.player.charClass.name = String(Class)
+            className.text? = Class
+        }
+        if let race = self.PFPlayer.objectForKey("race") as! String?
+        {
+            self.player.charRace.name = String(race)
+            classRace.text? = race
+        }
+        if let background = self.PFPlayer.objectForKey("background") as! String?
+        {
+            self.player.charBack.name = String(background)
+            classBack.text? = background
+        }
+        if let alignment = self.PFPlayer.objectForKey("alignment") as! String?
+        {
+            self.player.charAlign.align = String(alignment)
+            classAlign.text? = alignment
+        }
+        if let nameOfCharacter = self.PFPlayer.objectForKey("CharacterName")
+        {
+            self.charNameEntry.text = String(nameOfCharacter)
+        }
+    }
+    
+    func saveToParse()
+    {
+        
+        //enter data//
+        charNameField.text = charNameEntry.text
+        
+        //strength
+        str = strEntry.text!
+        
+        //convert to int
+        if let parseStr:Int = Int(strEntry.text!)
+        {
+            self.PFPlayer.setObject(parseStr, forKey: "strengthPoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "strengthPoints")
+        }
+        
+        //dexterity
+        dex = dexEntry.text!
+        
+        //convert to int
+        if let parseDex:Int = Int(dexEntry.text!)
+        {
+            self.PFPlayer.setObject(parseDex, forKey: "dexterityPoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "dexterityPoints")
+        }
+        
+        //constitution
+        con = conEntry.text!
+        
+        //save
+        if let parseCon:Int = Int(conEntry.text!)
+        {
+            self.PFPlayer.setObject(parseCon, forKey: "constitutionPoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "constitutionPoints")
+        }
+        
+        //intelligence
+        int = intEntry.text!
+        
+        //save
+        if let parseInt:Int = Int(intEntry.text!)
+        {
+            self.PFPlayer.setObject(parseInt, forKey: "intelligencePoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "intelligencePoints")
+        }
+        
+        //wisdom
+        wis = wisEntry.text!
+        
+        //save
+        if let parseWis:Int = Int(wisEntry.text!)
+        {
+            self.PFPlayer.setObject(parseWis, forKey: "wisdomPoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "wisdomPoints")
+        }
+        
+        //charisma
+        cha = chaEntry.text!
+        
+        //save
+        if let parseCha:Int = Int(chaEntry.text!)
+        {
+            self.PFPlayer.setObject(parseCha, forKey: "charismaPoints")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "charismaPoints")
+        }
+        
+        //proficiency
+        prof = profEntry.text!
+        
+        //save
+        if let parseProf:Int = Int(profEntry.text!)
+        {
+            self.PFPlayer.setObject(parseProf, forKey: "proficiencyBonus")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "proficiencyBonus")
+        }
+        
+        //level
+        if let parseLevel:Int = Int(levelEntry.text!)
+        {
+            self.PFPlayer.setObject(parseLevel, forKey: "level")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "level")
+        }
+        
+        //character name
+        if let parsePlayerName:String = String(playerNameEntry.text!)
+        {
+            self.PFPlayer.setObject(parsePlayerName, forKey: "CharacterName")
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "CharacterName")
+        }
+        
+        //parse save//
+        
+        self.PFPlayer.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                //object has been saved
+            }
+            else {
+                //there was a problem...
+            }
+        }
     
     func textFieldDidEndEditing(textField: UITextField) {
         charNameField.text = charNameEntry.text
@@ -455,12 +730,12 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
             chaValue = "+5"
             chaMod.text = chaValue
         }
-        
+        }
     }
+    // Hopefully this does something
 
     // MARK: Actions
     @IBOutlet weak var className: UILabel!
-    //
     @IBOutlet weak var classRace: UILabel!
     @IBOutlet weak var classAlign: UILabel!
     @IBOutlet weak var classBack: UILabel!

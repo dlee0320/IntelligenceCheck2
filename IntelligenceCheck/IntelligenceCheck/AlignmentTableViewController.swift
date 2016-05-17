@@ -31,19 +31,19 @@ class AlignmentTableViewController: UITableViewController {
     func loadAlignments(){
         let alignment1 = Alignment(align: "Lawful Good")
         
-        let alignment2 = Alignment(align: "Lawful Neutral")
+        let alignment2 = Alignment(align: "Neutral Good")
         
-        let alignment3 = Alignment(align: "Lawful Evil")
+        let alignment3 = Alignment(align: "Chaotic Good")
         
-        let alignment4 = Alignment(align: "Neutral Good")
+        let alignment4 = Alignment(align: "Lawful Neutral")
         
         let alignment5 = Alignment(align: "True Neutral")
         
-        let alignment6 = Alignment(align: "Neutral Evil")
+        let alignment6 = Alignment(align: "Chaotic Neutral")
         
-        let alignment7 = Alignment(align: "Chaotic Good")
+        let alignment7 = Alignment(align: "Lawful Evil")
         
-        let alignment8 = Alignment(align: "Chaotic Neutral")
+        let alignment8 = Alignment(align: "Neutral Evil")
         
         let alignment9 = Alignment(align: "Chaotic Evil")
         
