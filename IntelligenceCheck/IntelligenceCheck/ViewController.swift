@@ -93,6 +93,30 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         super.viewWillAppear(animated)
         self.className.text = self.player.charClass.name;
         self.classRace.text = self.player.charRace.name;
+        
+        //save class
+        if let parseClass:String = String(self.player.charClass.name)
+        {
+            self.PFPlayer.setObject(parseClass, forKey: "class")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "class")
+            self.saveToParse()
+        }
+        
+        //save race
+        if let parseRace:String = String(self.player.charRace.name)
+        {
+            self.PFPlayer.setObject(parseRace, forKey: "race")
+            self.saveToParse()
+        }
+        else
+        {
+            self.PFPlayer.setObject("", forKey: "race")
+            self.saveToParse()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,6 +139,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         return true
     }
     
+    //will check parse for another user by this name and will update view with previous values if name previously entered
     func textFieldDidEndEditing(textField: UITextField) {
         self.spinner.hidden = false
         self.spinner.startAnimating()
@@ -150,7 +175,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         }
     }
     
-    
+    //scans parse server for entry and updates text field
     func readFromParse()
     {
         if let strength = self.PFPlayer.objectForKey("strengthPoints") as! Int?
@@ -164,6 +189,35 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         if let constitution = self.PFPlayer.objectForKey("constitutionPoints") as! Int?
         {
             self.conEntry.text = String(constitution)
+        }
+        if let intelligence = self.PFPlayer.objectForKey("intelligencePoints") as! Int?
+        {
+            self.intEntry.text = String(intelligence)
+        }
+        if let wisdom = self.PFPlayer.objectForKey("wisdomPoints") as! Int?
+        {
+            self.wisEntry.text = String(wisdom)
+        }
+        if let charisma = self.PFPlayer.objectForKey("charismaPoints") as! Int?
+        {
+            self.chaEntry.text = String(charisma)
+        }
+        if let proficiency = self.PFPlayer.objectForKey("proficiencyBonus") as! Int?
+        {
+            self.profEntry.text = String(proficiency)
+        }
+        if let level = self.PFPlayer.objectForKey("level") as! Int?
+        {
+            self.levelEntry.text = String(level)
+        }
+        if let Class = self.PFPlayer.objectForKey("class") as! String?
+        {
+            self.player.charClass.name = String(Class)
+        }
+        if let race = self.PFPlayer.objectForKey("race") as! String?
+        {
+            self.player.charRace.name = String(race)
+            
         }
     }
     
@@ -224,40 +278,55 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         {
             self.PFPlayer.setObject(0, forKey: "intelligencePoints")
         }
-       /*
+       
         //wisdom
         wis = wisEntry.text!
-        //convert to int
-        let parseWis:Int? = Int(wisEntry.text!)
         
         //save
-        if parseWis != Player["wisdomPoints"] as? Int {
-            Player["wisdomPoints"] = parseWis
+        if let parseWis:Int = Int(wisEntry.text!)
+        {
+            self.PFPlayer.setObject(parseWis, forKey: "wisdomPoints")
         }
-        else { Player["wisomPoints"] = 0 }
-        
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "wisdomPoints")
+        }
+       
         //charisma
         cha = chaEntry.text!
-        //convert to int
-        let parseCha:Int? = Int(chaEntry.text!)
         
         //save
-        if parseCha != Player["charismaPoints"] as? Int {
-            Player["charismaPoints"] = parseCha
+        if let parseCha:Int = Int(chaEntry.text!)
+        {
+            self.PFPlayer.setObject(parseCha, forKey: "charismaPoints")
         }
-        else { Player["charismaPoints"] = 0 }
-        
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "charismaPoints")
+        }
+      
         //profficiency
         prof = profEntry.text!
-        //convert to int
-        let parseProf:Int? = Int(profEntry.text!)
         
         //save
-        if parseProf != Player["proficiencyBonus"] as? Int {
-            Player["proficiencyBonus"] = parseProf
+        if let parseProf:Int = Int(profEntry.text!)
+        {
+            self.PFPlayer.setObject(parseProf, forKey: "proficiencyBonus")
         }
-        else { Player["proficiencyBonus"] = 0 }
-       */
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "proficiencyBonus")
+        }
+        
+        //level
+        if let parseLevel:Int = Int(levelEntry.text!)
+        {
+            self.PFPlayer.setObject(parseLevel, forKey: "level")
+        }
+        else
+        {
+            self.PFPlayer.setObject(0, forKey: "level")
+        }
         
         //parse save//
         
