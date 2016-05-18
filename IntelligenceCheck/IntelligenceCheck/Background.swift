@@ -8,6 +8,7 @@
 
 import UIKit
 
+//form for background in pop up menu
 class Background{
 
 // MARK: Properties

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//form for alignment in pop up menu
 class Alignment {
     // MARK: Properties
     

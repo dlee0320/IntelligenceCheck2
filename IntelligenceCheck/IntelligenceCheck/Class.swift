@@ -8,6 +8,7 @@
 
 import UIKit
 
+//form for class in pop up menu
 class Class {
     
     // MARK: Properties

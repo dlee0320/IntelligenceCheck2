@@ -8,6 +8,7 @@
 
 import UIKit
 
+//form for race in pop up menu
 class Race{
     // MARK: Properties
     

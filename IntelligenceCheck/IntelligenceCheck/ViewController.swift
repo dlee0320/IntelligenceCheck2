@@ -35,6 +35,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     @IBOutlet weak var playerNameField: UILabel!
     var spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
     
+    //default values
     var level = "0"
     var prof = "2"
     var str = "8"
@@ -51,6 +52,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
     var wisValue = ""
     var chaValue = ""
     var player : Player = Player()
+    
+    //player object for Parse
     var PFPlayer: PFObject = PFObject(className: "Player")
     
     override func viewDidLoad() {
@@ -272,9 +275,15 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
             self.player.charAlign.align = String(alignment)
             classAlign.text? = alignment
         }
-        if let nameOfCharacter = self.PFPlayer.objectForKey("CharacterName")
+        if let playerName = self.PFPlayer.objectForKey("PlayerName")
         {
-            self.charNameEntry.text = String(nameOfCharacter)
+            self.playerNameEntry.text = String(playerName)
+            self.playerNameField.text = String(playerName)
+        }
+        if let characterName = self.PFPlayer.objectForKey("CharacterName")
+        {
+            self.charNameEntry.text = String(characterName)
+            self.charNameField.text = String(characterName)
         }
     }
     
@@ -386,9 +395,9 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         }
         
         //character name
-        if let parsePlayerName:String = String(playerNameEntry.text!)
+        if let parseCharacterName:String = String(charNameEntry.text!)
         {
-            self.PFPlayer.setObject(parsePlayerName, forKey: "CharacterName")
+            self.PFPlayer.setObject(parseCharacterName, forKey: "CharacterName")
         }
         else
         {
@@ -396,7 +405,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         }
         
         //parse save//
-        
+        //pushes PF object to Parse
         self.PFPlayer.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
@@ -407,6 +416,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
             }
         }
     
+    //updates values after editing text field
     func textFieldDidEndEditing(textField: UITextField) {
         charNameField.text = charNameEntry.text
         playerNameField.text = playerNameEntry.text
@@ -418,6 +428,8 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         cha = chaEntry.text!
         prof = profEntry.text!
         
+        //default values for calculations
+        //to be implemented in future//math done internally, need a better way to display it
         if (str == "8"){
             strValue = "-1"
             strMod.text = strValue
@@ -732,9 +744,9 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, UIIma
         }
         }
     }
-    // Hopefully this does something
-
+    
     // MARK: Actions
+    //labels for pop up menus
     @IBOutlet weak var className: UILabel!
     @IBOutlet weak var classRace: UILabel!
     @IBOutlet weak var classAlign: UILabel!
