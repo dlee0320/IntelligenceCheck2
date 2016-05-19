@@ -6,15 +6,110 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IntelligenceCheck/ViewController.swift"
-            timestampString = "485295729.182755"
+            timestampString = "485313596.371374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "CharacterSheetViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IntelligenceCheck.CharacterSheetViewController.PFPlayer.setter : __ObjC.PFObject"
+                  moduleName = "IntelligenceCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Michael/Desktop/IntelligenceCheck/IntelligenceCheck/IntelligenceCheck/ViewController.swift"
+                  timestampString = "485314182.063815"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IntelligenceCheck.CharacterSheetViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; IntelligenceCheck.CharacterSheetViewController"
+                  moduleName = "IntelligenceCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Michael/Desktop/IntelligenceCheck/IntelligenceCheck/IntelligenceCheck/ViewController.swift"
+                  timestampString = "485314182.064039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "2149">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IntelligenceCheck.CharacterSheetViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;IntelligenceCheck.CharacterSheetViewController&gt;"
+                  moduleName = "IntelligenceCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Michael/Desktop/IntelligenceCheck/IntelligenceCheck/IntelligenceCheck/ViewController.swift"
+                  timestampString = "485314182.064198"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "2037">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IntelligenceCheck/ViewController.swift"
+            timestampString = "485313639.861254"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IntelligenceCheck/ViewController.swift"
+            timestampString = "485313645.009323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "readFromParse()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IntelligenceCheck/ViewController.swift"
+            timestampString = "485313653.992755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "saveToParse()"
             landmarkType = "5">
          </BreakpointContent>
